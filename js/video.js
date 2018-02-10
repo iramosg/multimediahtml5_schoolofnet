@@ -48,6 +48,18 @@ function full() {
     video.webkitRequestFullScreen(); //Só está funcionando no Google Chrome e Opera
 }
 
-getVideo().onplay = function(){
-    console.log("deu play");
+getVideo().onplay = function () {
+    console.log("O vídeo foi iniciado");
+};
+
+getVideo().onpause = function () {
+    console.log("O vídeo foi pausado");
+};
+
+getVideo().onabort = function () {
+    console.log("O vídeo foi parado");
+};
+
+getVideo().onvolumechange = function() {
+    console.log("O volume foi alterado");
 }
