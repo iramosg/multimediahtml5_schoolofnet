@@ -133,7 +133,7 @@ function setTable(list) {
         var volume = '';
         for (var j in list[k].desc) {
             desc += '<p>' + list[k].desc[j] + '</p>';
-            time += '<p>' + list[k].time[j] + '</p>';
+            time += '<p>' + formatTime(list[k].time[j]) + '</p>';
             volume += '<p>' + list[k].volume[j] + '</p>';
         }
         table += '<td>' + desc + '</td>';
@@ -145,3 +145,23 @@ function setTable(list) {
     document.getElementById("tableList").innerHTML = table;
 }
 
+function formatTime(time){
+    var second = parseInt(time % 60);
+    var minAux = time / 60;
+    var minute = parseInt(minAux % 60);
+    var hour = parseInt(minAux / 60);
+
+    if(second < 10){
+        second = "0" + second;
+    }
+
+    if(minute < 10){
+        minute = "0" + minute;
+    }
+
+    if(hour < 10){
+        hour = "0" + hour;
+    }
+
+    return hour + ":" + minute + ":" + second; 
+}
